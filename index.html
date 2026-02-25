@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marlenka</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6d6f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    background-color: #ffb6d9;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    position: relative;
+}
+
+h1 {
+    color: white;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ff69b4;
+    color: white;
+}
+
+#runaway {
+    position: relative;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Vezmeš si mě Marlenko?</h1>
+
+    <div class="buttons">
+        <button onclick="alert('Hurá! ❤️')">Ano</button>
+        <button id="runaway">Ne</button>
+    </div>
+</div>
+
+<script>
+const btn = document.getElementById("runaway");
+const container = document.querySelector(".container");
+
+btn.addEventListener("mouseover", function() {
+
+    btn.style.position = "absolute";
+
+    const maxX = container.clientWidth - btn.offsetWidth;
+    const maxY = container.clientHeight - btn.offsetHeight;
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    btn.style.left = randomX + "px";
+    btn.style.top = randomY + "px";
+});
+</script>
+
+</body>
+</html>
